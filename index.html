@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>Discrete Fourier Transform</title>
+		<script type="text/javascript" src="js/canvas.js"></script>
+		<script type="text/javascript" src="js/complex.js"></script>
+		<script type="text/javascript" src="js/dft.js"></script>
+		<script type="text/javascript" src="js/view.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/gui.css">
+  </head>
+  <body onload="initEnv();">
+    <table>
+     <tr>
+      <td><canvas id="cvs_graph" width="820" height="600"></canvas></td>
+      <td>
+        <table>
+					<tr>
+						<td>
+							<table>
+			          <tr>
+			            <td><input id="bt_sampling" type="button" name="sampling" value="SAMPLING"></td>
+			          </tr>
+			          <tr>
+			            <td><input id="bt_dft" type="button" name="dft" value="DFT"></td>
+			          </tr>
+			          <tr>
+			            <td><input id="bt_resetcanvas" type="button" name="resetcanvas" value="RESET CANVAS"></td>
+			          </tr>
+							</table>
+						</td>
+						<td colspan="2">
+							<table>
+								<tr>
+									<td><input class="bt_mode" id="bt_wave_mode" type="button" name="wave_mode" value="wave-amplitude"></td>
+									<td><input class="bt_mode" id="bt_spectrum_mode" type="button" name="spectrum_mode" value="frequency spectrum"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+			    	<td><input id="bt_resetrange" type="button" name="resetrange" value="RESET RANGE"></td>
+			    	<td align="center"><input id="bt_setf0" type="button" name="setampzero" value="MIN AMPS"></td>
+			    	<td align="center"><input id="bt_sett0" type="button" name="setthetazero" value="MIN PHASES"></td>
+					</tr>
+          <tr>
+            <td class="slider_label" align="left"><div id="lb_f0" align="left">F[0] = (---, ---) </div></td>
+            <td><input class="slider" type="range" name="f0_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t0_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f1" align="left">F[1] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f1_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t1_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f2" align="left">F[2] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f2_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t2_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f3" align="left">F[3] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f3_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t3_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f4" align="left">F[4] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f4_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t4_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f5" align="left">F[5] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f5_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t5_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f6" align="left">F[6] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f6_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t6_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f7" align="left">F[7] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f7_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t7_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f8" align="left">F[8] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f8_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t8_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f9" align="left">F[9] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f9_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t9_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f10" align="left">F[10] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f10_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t10_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f11" align="left">F[11] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f11_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t11_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f12" align="left">F[12] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f12_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t12_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f13" align="left">F[13] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f13_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t13_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f14" align="left">F[14] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f14_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t14_filter" min="-180" max="180"></td>
+          </tr>
+          <tr>
+            <td class="slider_label"><div id="lb_f15" align="left">F[15] = (---,---)</div></td>
+            <td><input class="slider" type="range" name="f15_filter" min="0" max="300"></td>
+            <td><input class="slider" type="range" name="t15_filter" min="-180" max="180"></td>
+          </tr>
+        </table>
+      </td>
+     </tr>
+    </table>
+    <br/>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+This is an application named "Fourier Visualizer," that namely visualizes the Fourier transform.
+
+Features:
+DFT the signal
+See the frequency spectrum
+Chage the amplitudes and phases of each constituent waves
+Create a wave from scrach
+
+Enviroment Requrement
+Google Chrome ver 13.0 or later
+
+
